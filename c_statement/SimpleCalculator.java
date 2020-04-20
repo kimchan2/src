@@ -25,7 +25,7 @@ public class SimpleCalculator {
 		else if (op.equals("*"))
 			System.out.println("결과는 : " + (num1 * num2) + "입니다.");
 		else if (op.equals("/"))
-			System.out.println("결과는 : " + (num1 / (double)num2) + "입니다.");
+			System.out.println("결과는 : " + (num1 / (double) num2) + "입니다.");
 		else if (op.equals("%"))
 			System.out.println("결과는 : " + (num1 % num2) + "입니다.");
 		else
