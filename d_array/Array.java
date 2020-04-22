@@ -1,4 +1,4 @@
-package c_statement;
+package d_array;
 
 import java.util.Arrays;
 
@@ -162,3 +162,5 @@ public class Array {
 		System.out.println("총 횟수 : " + numbSum);
 	}
 }
+
+
