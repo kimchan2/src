@@ -49,8 +49,8 @@ public class Variable {
 		_short = 20;
 		_int = 30;
 		_long = 40L; // long 접미사 : L
-		_float = 3.14f; // float 접미사 : f
-		_double = 3.14; //double 접미사 : d(생략가능)
+		_float = 3.14f; // float 접미사 : f, 7자리
+		_double = 3.14; //double 접미사 : d(생략가능), 15자리
 		_char = '가'; // 작은 따옴표 안에 있어야만 문자
 		_boolean = true;
 		// 초기화 : 변수에 처음으로 값을 저장하는 것
