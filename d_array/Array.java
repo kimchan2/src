@@ -160,7 +160,11 @@ public class Array {
 			numbSum += number[i];
 		}
 		System.out.println("총 횟수 : " + numbSum);
+		
+		
+		
 	}
+	
 }
 
 
