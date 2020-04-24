@@ -88,18 +88,20 @@ public class Array {
 		}
 		System.out.println(Arrays.toString(numbers));
 
-		/*
-		 * sum = 0; double avg = 0;
-		 * 
-		 * for(int i = 0; i < numbers.length; i++){ sum += numbers[i]; } avg =
-		 * (double)sum/numbers.length;
-		 * 
-		 * System.out.println("합계 : " + sum + ", 평균 : " + avg);
-		 * 
-		 * // 향상된 for문 for(int number : numbers){ // 배열에 있는 값을 차례대로 변수에 저장 후
-		 * 실행한다. 데이터 타입은 동일해야 한다. System.out.println(number); // 안에서는 인덱스를 알 수
-		 * 없음, 배열의 값을 읽기만 가능 저장 불가 }
-		 */
+		
+		 sum = 0; double avg = 0;
+		  
+		  for(int i = 0; i < numbers.length; i++){
+		 sum += numbers[i]; } avg =
+		 (double)sum/numbers.length;
+		  
+		  System.out.println("합계 : " + sum + ", 평균 : " + avg);
+		  
+		  // 향상된 for문 for(int number : numbers){
+		  // 배열에 있는 값을 차례대로 변수에 저장 후   실행한다. 데이터 타입은 동일해야 한다. System.out.println(number);
+		  // 안에서는 인덱스를 알 수
+//	없음, 배열의 값을 읽기만 가능 저장 불가 }
+		 
 
 		int min = numbers[0];
 		int max = numbers[0];
