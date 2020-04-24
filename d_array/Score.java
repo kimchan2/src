@@ -1,6 +1,7 @@
 package d_array;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Score {
 
@@ -12,11 +13,76 @@ public class Score {
 		 * 석차  		이름  		Java 	 Oracle  	HTML  	CSS  	JQeury  	JSP  	총점  	평균
 		 * 1      	홍길동 		100		 100	 	100   	100  	100     	100  	600 	100.0
 		 */
+		int studentsNum = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("몇 명의 학생을 입력 하시겠습니까? ");
+		studentsNum = Integer.parseInt(sc.nextLine());
+		
+		String[][] ourClass = new String[studentsNum][8]; // 학생수, 과목수
+		int[] sum = new int[studentsNum];
+		double[] avg = new double[studentsNum];
+		
+		int answer = 0;
+		int changeAnswer = 0;
+		int changeCnt = 0;
+		String changeData = " ";
+			
+			for(int i = 0; i < ourClass.length; i++){
+				System.out.print("학생의 이름, 6가지 과목의 성적을 입력해 주세요(구분은 띄어쓰기로 합니다) : ");
+				for(int j = 1; j < ourClass[i].length; j++){
+					ourClass[i][j] = sc.next();
+//					System.out.println(Arrays.toString(ourClass[i]));
+				}
+				
+				sc.nextLine(); // Scanner를 이용하여 입력을 받다가 '\n' 개행 문자가 버퍼에 들어가서 입력이
+							   // 중복되거나 에러가 생기는 경우가 있습니다.
+							   // Scanner sc = new Scanner();
+							   // 에러를 방지하기위해 입력을 받고 개행문자가 들어가는 곳 다음에 대기가 필요합니다.
+							   // sc.nextLine()를 사용하여서 개행문자를 한번 받아준다면
+							   // 에러를 해결 할 수 있습니다.
+				
+				while(true){
+					if(changeCnt == ourClass.length)
+						break;
+				System.out.print("일부수정 혹은 입력데이터 삭제를 하시겠습니까? (일부수정 0, 삭제 1, 계속진행 2) : ");
+				answer = Integer.parseInt((sc.nextLine()));
+				
+				if(answer == 0){
+					changeCnt++;
+					System.out.print("수정하고 싶은 데이터의 번호를 입력해주세요 ( 1(이름), 2(Java), 3(Oracle),"
+							+ " 4(HTML), 5(CSS), 6(JQeury), 7(JSP) ): ");
+					changeAnswer = Integer.parseInt((sc.nextLine()));
+					System.out.print("수정하고 싶은 데이터의 내용을 입력해주세요 : ");
+					changeData = sc.nextLine();
+					for ( int m = 1; m < ourClass[i].length; m++){
+						if( m == changeAnswer){
+							ourClass[i][m] = changeData;
+						}
+					}
+					break;
+				}
+				else if(answer == 1){
+						for(int l = 1; l < ourClass[i].length; l++){
+							ourClass[i][l] = " ";
+						}
+						if( i > 1){
+							i--;
+						}
+						break;
+				}else if(answer == 2){
+					changeCnt++;
+					break;
+				}else{
+					System.out.print("잘못 입력하였습니다.");
+					System.out.println();
+				}
+				sc.nextLine();
+				}
+			}
 
-		String[][] ourClass = new String[24][8]; // 학생수, 과목수
-		int[] sum = new int[24];
-		double[] avg = new double[24];
-		String[] name = {"김동훈", "김아현", "김지수", "김찬희", "박경범", "박성하", "박승화", "박하은", "박혜선", "안승원", "오송현", "원종찬", "유효상", "이원우", "이재민", "이지윤", "이헌이", "이희욱", "정성훈", "정재은", "정지수", "정혁도", "채홍규", "최우성", "하지민", "한진수"};
+		
+		
+//		String[] name = {"김동훈", "김아현", "김지수", "김찬희", "박경범", "박성하", "박승화", "박하은", "박혜선", "안승원", "오송현", "원종찬", "유효상", "이원우", "이재민", "이지윤", "이헌이", "이희욱", "정성훈", "정재은", "정지수", "정혁도", "채홍규", "최우성", "하지민", "한진수"};
 		
 		
 		for( int i = 0; i < ourClass.length; i++){
@@ -26,11 +92,11 @@ public class Score {
 					continue;
 				}
 					
-				ourClass[i][k] = name[i];
+//				ourClass[i][k] = name[i];
 			}
-			for ( int j = 2; j < ourClass[i].length; j++){
-				ourClass[i][j] = Integer.toString(((int)(Math.random()*51) + 50));
-			}
+//			for ( int j = 2; j < ourClass[i].length; j++){
+//				ourClass[i][j] = Integer.toString(((int)(Math.random()*51) + 50));
+//			}
 //			System.out.println(Arrays.toString(ourClass[i]));	
 		}
 		
