@@ -29,10 +29,11 @@ public class Score {
 			
 			for(int i = 0; i < ourClass.length; i++){
 				System.out.print("학생의 이름, 6가지 과목의 성적을 입력해 주세요(구분은 띄어쓰기로 합니다) : ");
+				changeCnt++;
 				for(int j = 1; j < ourClass[i].length; j++){
 					ourClass[i][j] = sc.next();
-//					System.out.println(Arrays.toString(ourClass[i]));
 				}
+				System.out.println(Arrays.toString(ourClass[i]));
 				
 				sc.nextLine(); // Scanner를 이용하여 입력을 받다가 '\n' 개행 문자가 버퍼에 들어가서 입력이
 							   // 중복되거나 에러가 생기는 경우가 있습니다.
@@ -42,15 +43,14 @@ public class Score {
 							   // 에러를 해결 할 수 있습니다.
 				
 				while(true){
-					if(changeCnt == ourClass.length)
+					if(changeCnt == ourClass.length+1)
 						break;
 				System.out.print("일부수정 혹은 입력데이터 삭제를 하시겠습니까? (일부수정 0, 삭제 1, 계속진행 2) : ");
 				answer = Integer.parseInt((sc.nextLine()));
 				
 				if(answer == 0){
-					changeCnt++;
 					System.out.print("수정하고 싶은 데이터의 번호를 입력해주세요 ( 1(이름), 2(Java), 3(Oracle),"
-							+ " 4(HTML), 5(CSS), 6(JQeury), 7(JSP) ): ");
+							+ " 4(HTML), 5(CSS), 6(JQeury), 7(JSP) ) : ");
 					changeAnswer = Integer.parseInt((sc.nextLine()));
 					System.out.print("수정하고 싶은 데이터의 내용을 입력해주세요 : ");
 					changeData = sc.nextLine();
@@ -59,24 +59,23 @@ public class Score {
 							ourClass[i][m] = changeData;
 						}
 					}
+					System.out.println(Arrays.toString(ourClass[i]));
 					break;
 				}
 				else if(answer == 1){
 						for(int l = 1; l < ourClass[i].length; l++){
-							ourClass[i][l] = " ";
+							ourClass[i][l] = "0";
 						}
-						if( i > 1){
-							i--;
-						}
+						System.out.println(Arrays.toString(ourClass[i]));
+						i--;
+						changeCnt--;
 						break;
 				}else if(answer == 2){
-					changeCnt++;
 					break;
 				}else{
 					System.out.print("잘못 입력하였습니다.");
 					System.out.println();
 				}
-				sc.nextLine();
 				}
 			}
 
