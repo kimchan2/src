@@ -24,12 +24,10 @@ public class Score {
 		
 		int answer = 0;
 		int changeAnswer = 0;
-		int changeCnt = 0;
 		String changeData = " ";
 			
 			for(int i = 0; i < ourClass.length; i++){
 				System.out.print("학생의 이름, 6가지 과목의 성적을 입력해 주세요(구분은 띄어쓰기로 합니다) : ");
-				changeCnt++;
 				for(int j = 1; j < ourClass[i].length; j++){
 					ourClass[i][j] = sc.next();
 				}
@@ -43,9 +41,7 @@ public class Score {
 							   // 에러를 해결 할 수 있습니다.
 				
 				while(true){
-					if(changeCnt == ourClass.length+1)
-						break;
-				System.out.print("일부수정 혹은 입력데이터 삭제를 하시겠습니까? (일부수정 0, 삭제 1, 계속진행 2) : ");
+				System.out.print("데이터 일부 수정 또는 입력 데이터 전체 삭제를 하시겠습니까? (일부 수정 0, 삭제 1, 계속진행 2) : ");
 				answer = Integer.parseInt((sc.nextLine()));
 				
 				if(answer == 0){
@@ -68,7 +64,6 @@ public class Score {
 						}
 						System.out.println(Arrays.toString(ourClass[i]));
 						i--;
-						changeCnt--;
 						break;
 				}else if(answer == 2){
 					break;

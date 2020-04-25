@@ -20,9 +20,9 @@ public class Sort {
 		System.out.println(Arrays.toString(numbers));
 
 //		printRank(numbers); // 석차구하기
-//		selectSort(numbers); // 선택정렬
+		selectSort(numbers); // 선택정렬
 //		bubbleSort(numbers); // 버블정렬
-		insertSort(numbers); // 삽입정렬
+//		insertSort(numbers); // 삽입정렬
 
 	}
 
@@ -124,7 +124,7 @@ public class Sort {
 		 */
 		
 		int temp = 0;
-		for ( int i = 0; i < numbers.length; i++){
+		for ( int i = 0; i < numbers.length-1; i++){
 			for( int j = i+1 ; j < numbers.length; j++){ // j = 0으로 놓고 numbers[i] < numbers[j]로 해도
 														 // 큰수가 계속 뒤로 가기때문에 정렬이 되긴 된다
 				
