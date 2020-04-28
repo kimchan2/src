@@ -1,5 +1,6 @@
 package z_exam;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Exam05 {
@@ -7,8 +8,8 @@ public class Exam05 {
 	public static void main(String[] args) {
 //		[5-1] 다음은 배열을 선언하거나 초기화한 것이다. 잘못된 것을 고르고 그 이유를 설명
 //		하시오.
-//		a. int[] arr ; // --> 초기화를 안함
-//		b. int[] arr = {1,2,3, };
+//		a. int[] arr[] ; //
+//		b. int[] arr = {1,2,3, }; // 콤마뒤엔 기본값인 0이 들어감
 //		c. int[] arr = new int[5];
 //		d. int[] arr = new int[5]{1,2,3,4,5}; // --> 배열의 길이를 초기화하든지 직접값을 넣어주든지 둘중하나만 해야함
 //		e. int arr[5]; // -< []안에 숫자가 들어감, 위에 방식으로 하든지, int arr[]; 로 하든지
@@ -21,7 +22,7 @@ public class Exam05 {
 //				{ 20, 20, 20, 20},
 //				{ 30, 30}
 //				};
-//				정답 : 4
+//				정답 : 2
 		
 //		[5-3] 배열 arr에 담긴 모든 값을 더하는 프로그램을 완성하시오.
 //		[연습문제]/ch5/Exercise5_3.java
@@ -95,7 +96,8 @@ public class Exam05 {
 		
 		
 		
-//		[5-6] 다음은 거스름돈을 몇 개의 동전으로 지불할 수 있는지를 계산하는 문제이다. 변
+		
+//		[5-6] 다음은 거스름돈을 몇 개의 동전으로 지불할 수 있는지를 계산하는 문제이다. 변 
 //		수 money의 금액을 동전으로 바꾸었을 때 각각 몇 개의 동전이 필요한지 계산해서 출력하
 //		라. 단, 가능한 한 적은 수의 동전으로 거슬러 주어야한다. (1)에 알맞은 코드를 넣어서
 //		프로그램을 완성하시오.
@@ -124,7 +126,7 @@ public class Exam05 {
 //		돈이 부족합니다.’라고 출력하고 종료한다. 지불할 돈이 충분히 있으면, 거스름돈을 지불
 //		한 만큼 가진 돈에서 빼고 남은 동전의 개수를 화면에 출력한다. (1)에 알맞은 코드를 넣
 //		어서 프로그램을 완성하시오.
-//		[연습문제]/ch5/Exercise5_7.java // 내가 설명할 문제^_^ ㅎㅎ.ㅎㅎ..ㅎ
+//		[연습문제]/ch5/Exercise5_7.java //
 //		class Exercise5_7
 //		{
 //		public static void main(String args[])
@@ -133,42 +135,42 @@ public class Exam05 {
 //		System.out.println("USAGE: java Exercise5_7 3120");
 //		System.exit(0);
 //		}
-//		// 문자열을 숫자로 변환한다. 입력한 값이 숫자가 아닐 경우 예외가 발생한다.
-//		int money = Integer.parseInt(args[0]);
-//		System.out.println("money="+money);
-//		int[] coinUnit = {500, 100, 50, 10 }; // 동전의 단위
-//		int[] coin = {5, 5, 5, 5}; // 단위별 동전의 개수
-//		for(int i=0;i<coinUnit.length;i++) {
-//		int coinNum = 0;
-//	
+		// 문자열을 숫자로 변환한다. 입력한 값이 숫자가 아닐 경우 예외가 발생한다.
+		int money = 3120;//Integer.parseInt(args[0]);
+		System.out.println("money="+money);
+		int[] coinUnit = {500, 100, 50, 10 }; // 동전의 단위
+		int[] coin = {5, 5, 5, 5}; // 단위별 동전의 개수
+		for(int i=0;i<coinUnit.length;i++) {
+		int coinNum = 0;
+	
 //		1. 금액(money)을 동전단위로 나눠서 필요한 동전의 개수(coinNum)를 구한다.
 //		2. 배열 coin에서 coinNum만큼의 동전을 뺀다.
 //		(만일 충분한 동전이 없다면 배열 coin에 있는 만큼만 뺀다.)
 //		3. 금액에서 동전의 개수(coinNum)와 동전단위를 곱한 값을 뺀다.
-//
-//		coinNum = money / coinUnit[i]; // 1
-//		if( coinNum > coin[i]){
-//			coinNum = coin[i];
-//			coin[i] = 0;
-//			
-//		} else if( coinNum <= coin[i] ){
-//			coin[i] = coin[i] - coinNum;
-//			
-//		}
-//		
-//		System.out.println(Arrays.toString(coin));
-//		money -= coinNum * coinUnit[i];
-//		
-//		System.out.println(coinUnit[i]+"원: "+coinNum);
-//		}
-//		if(money > 0) {
-//		System.out.println("거스름돈이 부족합니다.");
-//		System.exit(0); // 프로그램을 종료한다.
-//		}
-//		System.out.println("=남은 동전의 개수 =");
-//		for(int i=0;i<coinUnit.length;i++) {
-//		System.out.println(coinUnit[i]+"원:"+coin[i]);
-//		}
+
+		coinNum = money / coinUnit[i]; // 1
+		if( coinNum > coin[i]){
+			coinNum = coin[i];
+			coin[i] = 0;
+			
+		} else {
+			coin[i] = coin[i] - coinNum;
+			
+		}
+		
+		System.out.println(Arrays.toString(coin));
+		money -= coinNum * coinUnit[i];
+		
+		System.out.println(coinUnit[i]+"원: "+coinNum);
+		}
+		if(money > 0) {
+		System.out.println("거스름돈이 부족합니다.");
+		System.exit(0); // 프로그램을 종료한다.
+		}
+		System.out.println("=남은 동전의 개수 =");
+		for(int i=0;i<coinUnit.length;i++) {
+		System.out.println(coinUnit[i]+"원:"+coin[i]);
+		}
 //		} // main
 //		}
 //		
@@ -223,7 +225,7 @@ public class Exam05 {
 //		}System.out.println();
 //		}
 		
-		
+// 10번
 //		char[] abcCode =
 //			{ '`','~','!','@','#','$','%','^','&','*',
 //			'(',')','-','_','+','=','|','[',']','{',
