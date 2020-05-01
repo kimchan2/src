@@ -8,7 +8,7 @@ public class AirConditioner {
 	int index;
 	
 	AirConditioner(){
-		System.out.println("매개변수 없음");
+		
 	}
 	
 	AirConditioner(int temp, int index){

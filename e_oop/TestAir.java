@@ -8,7 +8,7 @@ public class TestAir {
 		
 		aircon.powerOnOff(); // 전원 켜기
 		aircon.setPower(); // 초기값은 약풍, 중간으로 설정
-		aircon.upTemp(); // 초기온도 18도 1도 올려서 19도
+		aircon.upTemp(); // 초기온도 18도, 1도 올려서 19도
 		aircon.downTemp(); // 1도 내려서 18도
 
 		aircon.setPower(); // 강풍
