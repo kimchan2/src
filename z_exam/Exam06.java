@@ -40,11 +40,8 @@ public class Exam06 {
 //		}
 //		
 //		SutdaCard(){
-//			this.num = (int)(Math.random() * 10 ) + 1;
-//			if( (int)(Math.random() * 3 ) % 2 == 0)
-//				this.isKwang = true;
-//			if( (int)(Math.random() * 3 ) % 2 == 1)
-//				this.isKwang = false;
+//			this.num = 1
+//			this.isKwang = true;
 //			
 //		}
 //		
@@ -248,9 +245,9 @@ public class Exam06 {
 //	PlayingCard card = new PlayingCard(1,1);
 //	}
 //	}
-//	- 클래스변수(static변수) : width, height, main
+//	- 클래스변수(static변수) : width, height
 //	- 인스턴스변수 : kind, num
-//	- 지역변수 : k, n, card
+//	- 지역변수 : k, n, card, args
 	
 	
 //	[6-9] 다음은 컴퓨터 게임의 병사(marine)를 클래스로 정의한 것이다. 이 클래스의 멤버
@@ -317,7 +314,9 @@ public class Exam06 {
 //		d.명시적 초기화를 제일 우선적으로 고려해야 한다.
 //		e.클래스변수보다 인스턴스변수가 먼저 초기화된다.
 //	
-//		c 초기화 블럭이 먼저 수행, e 클래스가 메모리에 처음 로딩될때 자동초기화 그후에 인스턴스변수 초기화
+//		c 초기화 블럭이 먼저 수행, 생성자가 제일 마지막
+//		명시적 초기화 -> 초기화 블럭 -> 생성자
+//		e 클래스가 메모리에 처음 로딩될때 자동초기화 그후에 인스턴스변수 초기화
 //		
 //	[6-15] 다음중 인스턴스변수의 초기화 순서가 올바른 것은?
 //		a. 기본값-명시적초기화-초기화블럭-생성자
@@ -335,7 +334,7 @@ public class Exam06 {
 //		e. 힙(heap)영역에 생성되며 가비지 컬렉터에 의해 소멸된다.
 //			
 //		a 초기화 해줘야 함, e 힙영역은 인스턴스 변수가 생성되는 영역 지역변수는 호출 스택에 생성
-//		
+//			
 //		콜 스택을 사용하는 목적은 여러 가지이지만,
 //		주된 이유는 현재 실행 중인 서브루틴의 실행이 끝났을 때,
 //		제어를 반환할 지점을 보관하기 위해서이다.
@@ -402,19 +401,19 @@ public class Exam06 {
 //	{
 //	
 //		public static void change(String str) {
-//			str += "456";
+//			str += "456"; // 여기선 새로운 str을 만들기 때문에 str주소가 달라짐
 //		}
 //	
 //		public static void main(String[] args){
 //			String str = "ABC123";
 //			System.out.println(str);
-//			change(str);
-//			System.out.println("After change:"+str);
+//			change(str); // 매개변수로 String이 넘어갈 때 주소가 넘어감, 같은 넘이라고 보면됨
+//			System.out.println("After change:"+str); // str이 그대로 출력됨, 다른참조형 변수였으면 변경되었을 것임
 //		}
 //	}
 //	
 //	ABC123
-//	After change:ABC123456
+//	After change:ABC123
 	
 	
 //	[6-20] 다음과 같이 정의된 메서드를 작성하고 테스트하시오.
