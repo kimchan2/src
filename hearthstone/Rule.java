@@ -10,10 +10,11 @@ public class Rule {
 	// 일반 카드와 도발 카드만 있음
 	// 카드는 공격력과 체력이 있는데 체력 <= 0 이 되면 카드가 파괴됨
 	
-	public static final int MAX_HP = 30;
-	public static final int CARD_DECK_LIMIT = 30;
-	public static final int INIT_CARDS = 3;
-	public static final int INIT_MANA = 1;
-	public static final int MAX_PLAYER = 2;
+	public static final int MAX_HP = 30; // 유저 최대 HP
+	public static final int CARD_DECK_LIMIT = 30; // 덱 최대 카드 수
+	public static final int INIT_CARDS = 3; // 처음 가지고 시작하는 카드수
+	public static final int INIT_MANA = 1; // 처음 가지고 시작하는 마나
+	public static final int MAX_PLAYER = 2; // 플레이하는 유저
+	public static final int MAX_FIELD = 7; // 필드에 놓을수 있는 최대 카드수
 	
 }
