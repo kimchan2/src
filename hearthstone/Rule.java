@@ -17,4 +17,18 @@ public class Rule {
 	public static final int MAX_PLAYER = 2; // 플레이하는 유저
 	public static final int MAX_FIELD = 7; // 필드에 놓을수 있는 최대 카드수
 	
+	int check_continue(Player p1, Player p2){
+		if(p1.hp <= 0){
+			System.out.println("플레이어 2의 승리입니다!!");
+			return 0;
+		}
+		
+		if(p2.hp <= 0){
+			System.out.println("플레이어 1의 승리입니다!!");
+			return 0;
+		}
+		
+		return 1;
+	}
+	
 }

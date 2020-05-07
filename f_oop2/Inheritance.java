@@ -50,6 +50,31 @@ public class Inheritance {
 		 * - 객체들간에 객체를 공유하기 위해 사용한다.
 		 */
 
+		AccessModifier am = new AccessModifier();
+		
+		System.out.println(am.publicVar);
+		am.publicMethod();
+		
+		System.out.println(am.protectedVar);
+		am.protectedMethod();
+		
+		System.out.println(am.defaultVar);
+		am.defaultMethod();
+		
+//		System.out.println(am.privateVar);
+//		am.privateMethod();
+		
+		Time t = new Time();
+//		t.hour = 9;
+//		t.minute = 35;
+//		t.second = 9999;
+		
+		t.setHour(9);
+		t.setMinute(43);
+		t.setSecond(9999);
+		
+		System.out.println(t);
+		
 	}
 
 }
