@@ -54,7 +54,11 @@ public class Deck {
 	
 	void hand_info(ArrayList<Card> hand){
 		for (int i = 0; i < hand.size(); i++) {
-			System.out.print(hand.get(i).card_name + "(" + hand.get(i).hp + "/" + hand.get(i).attack + " 마나 : " + hand.get(i).mana+ ") / " );
+			if(hand.get(i).prvk == 1){
+				System.out.print(" *도발* " + hand.get(i).card_name + "(" + hand.get(i).hp + "/" + hand.get(i).attack + " 마나 : " + hand.get(i).mana+ ") / " );
+			}
+			else
+				System.out.print(hand.get(i).card_name + "(" + hand.get(i).hp + "/" + hand.get(i).attack + " 마나 : " + hand.get(i).mana+ ") / " );
 		}
 		System.out.println();
 	}

@@ -19,8 +19,9 @@ public class Player extends Rule{
 	int attack_minion(Card mine, Card enemy){
 		
 		mine.hp = mine.hp - enemy.attack;
-		enemy.hp = enemy.hp - mine.hp;
-		
+		enemy.hp = enemy.hp - mine.attack;
+		if( mine.hp <= 0 && enemy.hp <= 0) // 둘다 죽었으면 3 반환
+			return 3;
 		if( mine.hp <= 0 ) // 내 카드가 죽었으면 1 반환
 			return 1;
 		if( enemy.hp <= 0) // 적 카드가 죽었으면 2 반환
@@ -33,14 +34,13 @@ public class Player extends Rule{
 		enemy.hp = enemy.hp - mine.attack;
 	}
 	
-	void use_hero_power(Card enemy){
-		mana = mana - 2;
-		enemy.hp = enemy.hp - 2; // 영웅능력은 마나2를 소비해 하수인에게 피해 2를줌
-	}
-	
-	void use_hero_power(Player enemy){
-		mana = mana - 2;
+	int use_hero_power(Player enemy, int player_mana){
+		if(player_mana < 2){ // 남은 마나가 2보다 작다면 마나를 그대로 리턴
+			System.out.println("마나가 부족합니다. 영웅능력을 사용하지 못합니다.");
+			return player_mana;
+		}
 		enemy.hp = enemy.hp - 2; // 영웅능력은 마나2를 소비해 상대에게 피해 2를줌
+		return player_mana - 2;
 	}
 	
 	void plus_mana(){

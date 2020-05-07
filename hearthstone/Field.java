@@ -19,24 +19,31 @@ public class Field extends Rule {
 		return 1; // 0일때 필드가 꽉참, 1일때 꽉차지 않음
 	}
 
-	void put_field(Card mine, int player_mana) {
+	int put_field(Card mine, int player_mana) {
 		if (player_mana >= mine.mana) {
 			field.add(mine);
 			player_mana -= mine.mana;
-		} else
+			return player_mana;
+		} else{
 			System.out.println("마나가 모자랍니다.");
+			return player_mana;
+		}
 	}
 
 	void field_info(Field f1, Field f2) {
+		System.out.println();
+		System.out.println("============필드 상황============");
 		System.out.println("----------player1 필드----------");
 		for (int i = 0; i < f1.field.size(); i++) {
 			if (f1.field == null){
 				System.out.println("현재 필드가 비어있습니다.");
 				break;}
 			else {
-				System.out.print(f1.field.get(i).card_name + "("
-						+ f1.field.get(i).hp + "/" + f1.field.get(i).attack
-						+ " 마나 : " + f1.field.get(i).mana + ") / ");
+				if(f1.field.get(i).prvk == 1){
+					System.out.print(" *도발* " + f1.field.get(i).card_name + "(" + f1.field.get(i).hp + "/" + f1.field.get(i).attack + " 마나 : " + f1.field.get(i).mana+ ") / " );
+				}
+				else
+					System.out.print(f1.field.get(i).card_name + "(" + f1.field.get(i).hp + "/" + f1.field.get(i).attack + " 마나 : " + f1.field.get(i).mana+ ") / " );
 			}
 		}
 		System.out.println();
@@ -46,10 +53,13 @@ public class Field extends Rule {
 				System.out.println("현재 필드가 비어있습니다.");
 				break;}
 			else {
-				System.out.print(f2.field.get(i).card_name + "("
-						+ f2.field.get(i).hp + "/" + f2.field.get(i).attack
-						+ " 마나 : " + f2.field.get(i).mana + ") / ");
+				if(f2.field.get(i).prvk == 1){
+					System.out.print(" *도발* " + f2.field.get(i).card_name + "(" + f2.field.get(i).hp + "/" + f2.field.get(i).attack + " 마나 : " + f2.field.get(i).mana+ ") / " );
+				}
+				else
+					System.out.print(f2.field.get(i).card_name + "(" + f2.field.get(i).hp + "/" + f2.field.get(i).attack + " 마나 : " + f2.field.get(i).mana+ ") / " );
 			}
 		}
+		System.out.println();
 	}
 }

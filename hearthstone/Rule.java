@@ -1,5 +1,7 @@
 package hearthstone;
 
+import java.util.ArrayList;
+
 public class Rule {
 
 	// 덱에 카드는 30장
@@ -17,7 +19,7 @@ public class Rule {
 	public static final int MAX_PLAYER = 2; // 플레이하는 유저
 	public static final int MAX_FIELD = 7; // 필드에 놓을수 있는 최대 카드수
 	
-	int check_continue(Player p1, Player p2){
+	int check_hp(Player p1, Player p2){
 		if(p1.hp <= 0){
 			System.out.println("플레이어 2의 승리입니다!!");
 			return 0;
@@ -31,4 +33,28 @@ public class Rule {
 		return 1;
 	}
 	
+	int check_prvk(ArrayList<Card> card){
+		for(int i = 0; i < card.size(); i++){
+			if(card.get(i).prvk == 1)
+				return 1; // 카드중에 도발이 하나라도 있으면 1반환
+		}
+		return 0; // 없으면 0반환
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
