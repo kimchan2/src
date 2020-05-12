@@ -8,13 +8,15 @@ public class Card {
 	int attack;
 	int hp;
 	int prvk;
+	int offen;
 	
-	Card(String card_name, int mana, int attack, int hp, int prvk){
+	Card(String card_name, int mana, int attack, int hp, int prvk, int offen){
 		
 		this.card_name = card_name;
 		this.mana = mana;
 		this.attack = attack;
 		this.hp = hp;
 		this.prvk = prvk;
+		this.offen = offen;
 	}
 }

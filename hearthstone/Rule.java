@@ -41,6 +41,12 @@ public class Rule {
 		return 0; // 없으면 0반환
 	}
 	
+	void offen_permis(ArrayList<Card> card){ // 카드를 공격 가능하게 만듦
+		for(int i = 0; i < card.size(); i++){
+			card.get(i).offen = 1;
+		}
+	}
+	
 }
 
 

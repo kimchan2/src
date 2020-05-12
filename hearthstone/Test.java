@@ -55,6 +55,7 @@ public class Test {
 				f1.field_info(f1, f2); // field 정보제공
 
 				player1_act: while (true) {
+					
 					System.out.println();
 					System.out.println("플레이어 1의 현재 마나 : " + cp_p1_mana);
 					System.out
@@ -84,6 +85,10 @@ public class Test {
 						int result = 0; // 공격 결과, 내카드가 죽었으면 1, 상대카드가 죽었으면 2, 아무일도 없었으면 0
 						System.out.print("어떤 카드로 공격하시겠습니까? : ");
 						card1 = Integer.parseInt(sc.nextLine()); // 내가 공격할 카드 결정
+						if ( f1.field.get(card1-1).offen != 1 ){
+							System.out.println("이번 턴에 낸 카드는 공격할 수 없습니다.");
+							continue;
+						}
 						System.out.print( card1 +"번 카드로 상대의 몇 번 카드를 공격하시겠습니까? : ");
 						card2 = Integer.parseInt(sc.nextLine()); // 공격받을 상대 카드 결정
 						
@@ -116,6 +121,10 @@ public class Test {
 						int card3;
 						System.out.print("어떤 카드로 공격하시겠습니까? : ");
 						card3 = Integer.parseInt(sc.nextLine()); // 내가 공격할 카드 결정
+						if ( f1.field.get(card3-1).offen != 1 ){
+							System.out.println("이번 턴에 낸 카드는 공격할 수 없습니다.");
+							continue;
+						}
 						p1.attack_hero(f1.field.get(card3-1), p2);
 						System.out.println("player 2의 hp가 " + p2.hp + "남았습니다.");
 						continue;
@@ -138,6 +147,7 @@ public class Test {
 					}
 				}
 			}
+			rule.offen_permis(f1.field);
 			
 			if( rule.check_hp(p1, p2) == 0 ){
 				break game_loop;
@@ -158,6 +168,7 @@ public class Test {
 				f1.field_info(f1, f2); // field 정보제공
 
 				player2_act: while (true) {
+					
 					System.out.println();
 					System.out.println("플레이어 2의 현재 마나 : " + cp_p2_mana);
 					System.out
@@ -187,6 +198,10 @@ public class Test {
 						int result = 0; // 공격 결과, 내카드가 죽었으면 1, 상대카드가 죽었으면 2, 아무일도 없었으면 0
 						System.out.print("어떤 카드로 공격하시겠습니까? : ");
 						card1 = Integer.parseInt(sc.nextLine()); // 내가 공격할 카드 결정
+						if ( f2.field.get(card1-1).offen != 1 ){
+							System.out.println("이번 턴에 낸 카드는 공격할 수 없습니다.");
+							continue;
+						}
 						System.out.print( card1 +"번 카드로 상대의 몇 번 카드를 공격하시겠습니까? : ");
 						card2 = Integer.parseInt(sc.nextLine()); // 공격받을 상대 카드 결정
 						
@@ -219,6 +234,10 @@ public class Test {
 						int card3;
 						System.out.print("어떤 카드로 공격하시겠습니까? : ");
 						card3 = Integer.parseInt(sc.nextLine()); // 내가 공격할 카드 결정
+						if ( f2.field.get(card3-1).offen != 1 ){
+							System.out.println("이번 턴에 낸 카드는 공격할 수 없습니다.");
+							continue;
+						}
 						p2.attack_hero(f2.field.get(card3-1), p1);
 						System.out.println("player 1의 hp가 " + p2.hp + "남았습니다.");
 						continue;
@@ -240,6 +259,8 @@ public class Test {
 					}
 				}
 			}
+			rule.offen_permis(f2.field);
+			
 			p1.plus_mana(); // 턴종료시 p1 마나 ++
 			p2.plus_mana(); // 턴종료시 p2 마나 ++
 			

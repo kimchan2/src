@@ -8,7 +8,7 @@ public class Singleton {
 		
 	}
 	
-	public static Singleton getInstance(){
+	public static Singleton getInstance(){ // 메서드를 통해 접근하게 만듦
 		
 		if(instance == null){ // 값을 공유하기 위해서 null 일때만 생성
 			instance = new Singleton();
@@ -26,7 +26,21 @@ public class Singleton {
 	
 }
 
+class sinton{
 
+	private static sinton instance;
+	
+	private sinton(){
+		
+	}
+	
+	public static sinton getInstance(){
+		if(instance == null){
+			instance = new sinton();
+		}
+		return instance;
+	}
+}
 
 
 
