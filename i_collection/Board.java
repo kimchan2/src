@@ -34,10 +34,11 @@ public class Board {
 			} else if (board.size() != 0) {
 				System.out.println();
 				System.out.println("=====================게시판 목록=====================");
+				System.out.println("번호\t작성일\t\t\t제목\t작성자\t내용");
 				for (int i = 0; i < board.size(); i++) {
 					for (String key : board.get(i).keySet()) {
 						Object value = board.get(i).get(key);
-						System.out.print( key + ": " + value + "\t || \t");
+						System.out.print(value + "\t");
 //						if (key.equals("번호")) {
 //							System.out.print("번호 : " + value + "\t");
 //						}
